@@ -1,8 +1,8 @@
-# Store It - README
+# DriveSync - README
 
 ## Overview
 
-Store It is a cloud-based document storage platform, similar to Google Drive, that allows users to securely upload, manage, and access their documents from anywhere. Built with Next.js, Appwrite, and Tailwind CSS, it ensures a seamless and intuitive experience.
+DriveSync is a cloud-based document storage platform, similar to Google Drive, that allows users to securely upload, manage, and access their documents from anywhere. Built with Next.js, Appwrite, and Tailwind CSS, it ensures a seamless and intuitive experience.
 
 ## Features
 
