@@ -12,8 +12,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "StoreIt",
-  description: "StoreIt - The only storage solution you need.",
+  title: "DriveSync",
+  description:
+    "DriveSync - A cloud-based document storage platform, similar to Google Drive, that allows users to securely upload, manage, and access their documents from anywhere. Built with Next.js, Appwrite, and Tailwind CSS, it ensures a seamless and intuitive experience",
 };
 
 export default function RootLayout({
