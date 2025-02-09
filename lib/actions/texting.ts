@@ -66,7 +66,7 @@ export const signupUser = async (data: CreateUserParams) => {
         httpOnly: true,
         path: "/",
         secure: true,
-        sameSite: "strict",
+        sameSite: "none",
         maxAge: 60 * 60 * 60 * 24,
       });
     }
@@ -106,15 +106,13 @@ export const loginUser = async (data: CreateUserParams) => {
         httpOnly: true,
         path: "/",
         secure: true,
-        sameSite: "strict",
+        sameSite: "none",
         maxAge: 60 * 60 * 60 * 24,
       });
     }
 
     const user = await getMiddleWareUser();
     if (!user) throw new Error("User not found");
-
-    console.log(user);
 
     if (!user.emailVerification) {
       console.log("Sending email.....");

@@ -1,4 +1,5 @@
 "use client";
+import LogoWhite from "@/components/LogoWhite";
 import ThemeToggle from "@/components/ThemeToggle";
 import { navItems } from "@/lib/constant";
 import { cn } from "@/lib/utils";
@@ -18,13 +19,16 @@ const Sidebar = ({ fullname, email, avatar_url: AvatarUrl }: Props) => {
   return (
     <aside className="sidebar">
       <Link href={"/dashboard"}>
-        <Image
+        <div className="hidden lg:block">
+          <LogoWhite dark={true} />
+        </div>
+        {/* <Image
           src={"/assets/icons/logo-full-brand.svg"}
           alt={"StoreIt"}
           width={160}
           height={50}
           className="hidden lg:block h-auto"
-        />
+        /> */}
         <Image
           src={"/assets/icons/logo-brand.svg"}
           alt={"StoreIt"}

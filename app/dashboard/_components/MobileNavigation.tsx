@@ -16,6 +16,7 @@ import { navItems } from "@/lib/constant";
 import FileUploader from "./FileUploader";
 import { Button } from "@/components/ui/button";
 import { signOutUser } from "@/lib/actions/user.actions";
+import { IoMenu } from "react-icons/io5";
 
 interface Props {
   $id: string;
@@ -37,21 +38,19 @@ const MobileNavigation = ({
 
   return (
     <header className="mobile-header">
-      <Image
-        src="/assets/icons/logo-full-brand.svg"
-        alt="logo"
-        width={120}
-        height={52}
-        className="h-auto"
-      />
+      <div className="flex items-center gap-3">
+        <Image
+          src="/assets/images/primary.svg"
+          alt="logo"
+          width={52}
+          height={52}
+          className="h-auto"
+        />
+        <p className="text-xl font-semibold text-brand">DriveSync</p>
+      </div>
       <Sheet open={open} onOpenChange={setIsOpen}>
         <SheetTrigger>
-          <Image
-            src="/assets/icons/menu.svg"
-            alt="menu"
-            width={30}
-            height={30}
-          />
+          <IoMenu className="text-4xl  text-dark_1-200 dark:text-light-400" />
         </SheetTrigger>
         <SheetContent className="shad-sheet h-screen px-3">
           <SheetTitle>

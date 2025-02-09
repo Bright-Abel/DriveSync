@@ -54,7 +54,7 @@ const ImageDialog = () => {
       </DialogTrigger>
       <DialogContent
         className="
-      size-[350px] flex items-center flex-col bg-white border-0"
+      size-[350px] flex items-center flex-col !bg-white border-0"
       >
         <DialogHeader>
           <DialogTitle className="text-center hidden text-light-100 dark:text-light-500">
@@ -73,7 +73,7 @@ const ImageDialog = () => {
         <DialogFooter className="flex flex-col md:flex-row gap-3 w-full">
           <Button
             onClick={closeModals}
-            className="h-[52px] flex-1 rounded-full bg-dark_1-100  text-light-500 dark:hover:bg-white/80"
+            className="h-[52px] flex-1 rounded-full !bg-dark_1-100  !text-light-500 dark:hover:bg-white/80"
           >
             Cancel
           </Button>

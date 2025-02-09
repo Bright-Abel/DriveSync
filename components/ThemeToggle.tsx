@@ -35,7 +35,7 @@ const ThemeToggle = ({ className }: { className?: string }) => {
   return (
     <div
       className={clsx(
-        "p-2 ml-5 rounded-[2px] text-sm text-[#334155] hover:bg-select-100 dark:text-white hover:text-blue-100 hover:dark:bg-blue-100 hover:dark:text-select-100 duration-400 flex items-center gap-2"
+        "p-2 lg:ml-5 rounded-[2px] text-sm text-[#334155] hover:bg-select-100 dark:text-white hover:text-blue-100 hover:dark:bg-blue-100 hover:dark:text-select-100 duration-400 flex items-center gap-2"
       )}
     >
       <Switch
