@@ -35,7 +35,7 @@ DriveSync is a cloud-based document storage platform, similar to Google Drive, t
 1. **Clone the Repository**
 
    ```sh
-   git clone https://github.com/yourusername/store_it.git
+   git clone https://github.com/Bright-Abel/DriveSync.git
    cd store_it
    ```
 
