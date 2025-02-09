@@ -19,7 +19,7 @@ const LogoWhite = ({ dark = false, className }: Props) => {
       />
       <p
         className={clsx(
-          "text-4xl font-semibold",
+          "text-3xl font-semibold",
           dark ? "text-brand" : "text-white"
         )}
       >

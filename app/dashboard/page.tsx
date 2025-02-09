@@ -1,7 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { getFiles, getUserTotalSpace } from "@/lib/actions/file.action";
 import { convertFileSize, getFileTypeIcon, getUsageSummary } from "@/lib/utils";
-import React from "react";
 import FormattedDateAndTime from "./_components/FormattedDateAndTime";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +20,6 @@ const Dashboard = async () => {
     <div className="dashboard-container h-full py-7">
       <section className="">
         <Chart used={totalSpace.used} />
-
         {/* Uploaded file type summaries */}
         <div className="">
           <ul className="dashboard-summary-list ">
