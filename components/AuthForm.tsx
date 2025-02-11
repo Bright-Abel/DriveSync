@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { SignUpProp, SignInProp } from "@/lib/constant";
+import { SignUpProp, SignInProp, AvatarUrl } from "@/lib/constant";
 // import { createAccount, signinUser } from "@/lib/actions/user.actions";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { AuthValidation } from "@/lib/form-validation";
@@ -64,15 +64,16 @@ const AuthForm = ({ type }: { type: FormTypes }) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
-    if (type === "sign-up" && !userAvatar) {
-      showToast("error", <p>Please select an avatar.</p>, {
-        icon: false,
-        autoClose: 4000,
-        style: TOAST_STYLES.error,
-      });
-      setIsLoading(false);
-      return;
-    }
+    const avatar_new = userAvatar ? userAvatar : AvatarUrl;
+    // if (type === "sign-up" && !userAvatar) {
+    //   showToast("error", <p>Please select an avatar.</p>, {
+    //     icon: false,
+    //     autoClose: 4000,
+    //     style: TOAST_STYLES.error,
+    //   });
+    //   setIsLoading(false);
+    //   return;
+    // }
 
     try {
       let data: {
@@ -87,7 +88,7 @@ const AuthForm = ({ type }: { type: FormTypes }) => {
           email: values.email,
           fullname: values.fullname!,
           password: values.password!,
-          avatar_url: userAvatar,
+          avatar_url: avatar_new,
         };
       } else {
         data = {

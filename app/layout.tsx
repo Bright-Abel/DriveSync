@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import ToastProvider from "@/components/ReactToast";
@@ -17,6 +17,13 @@ export const metadata: Metadata = {
     "DriveSync - A cloud-based document storage platform, similar to Google Drive, that allows users to securely upload, manage, and access their documents from anywhere. Built with Next.js, Appwrite, and Tailwind CSS, it ensures a seamless and intuitive experience",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} font-poppins antialiased container bg-white dark:bg-dark_1-200`}
+        className={`${poppins.variable} font-poppins antialiased container h-full bg-white dark:bg-dark_1-200`}
       >
         <Providers>
           <ReduxProvider>

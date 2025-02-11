@@ -11,11 +11,11 @@ const AppLayout = ({
   type: "sign-in" | "sign-up";
 }>) => {
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen overflow-auto">
       <section className="h-full flex items-center">
         <SideContent type={type} />
 
-        <section className="w-full h-full flex flex-1 flex-col lg:justify-center bg-white p-4 py-10 lg:p-10 lg:py-0 items-center">
+        <section className="w-full h-full flex overflow-auto flex-1 flex-col lg:justify-center bg-white p-4 py-10 lg:p-10 lg:py-0 items-center">
           <div className="mb-16 lg:hidden">
             <LogoWhite dark={true} />
             {/* <Image
