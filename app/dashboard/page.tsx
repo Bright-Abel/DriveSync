@@ -17,7 +17,7 @@ const Dashboard = async () => {
   const usageSummary = getUsageSummary(totalSpace);
 
   return (
-    <div className="dashboard-container h-full py-7">
+    <div className="dashboard-container w-full h-full py-7">
       <section className="">
         <Chart used={totalSpace.used} />
         {/* Uploaded file type summaries */}
@@ -72,13 +72,13 @@ const Dashboard = async () => {
         </div>
       </section>
 
-      <section className="dashboard-recent-files !pb-10 ">
+      <section className="dashboard-recent-files !pb-10 w-full relative">
         <div className="w-full px-5 xl:px-7 pt-6 bg-white dark:bg-dark_1-400 sticky top-0 z-10">
           <h2 className="h2 text-light-100 dark:text-light-400 ">
             Recent files uploaded
           </h2>
         </div>
-        <div className=" w-full space-y-4 p-5 xl:p-7  h-full custom-scrollbar overflow-auto ">
+        <div className=" w-full space-y-4 p-5 xl:p-7 h-full custom-scrollbar overflow-auto ">
           {files.documents.length > 0
             ? files.documents.map((file: Models.Document) => (
                 <RecentFiles key={file.$id} file={file} />

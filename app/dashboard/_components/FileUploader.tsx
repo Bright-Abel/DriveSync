@@ -67,7 +67,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
   };
   return (
     <>
-      <div {...getRootProps()} className="cursor-pointer">
+      <div {...getRootProps()} className="cursor-pointer ">
         <input {...getInputProps()} />
         <Button type="button" className={cn("uploader-button", className)}>
           <Image
@@ -80,7 +80,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
         </Button>
       </div>
       {files.length > 0 && (
-        <ul className="uploader-preview-list">
+        <ul className="uploader-preview-list relative z-50">
           <h4 className="h4 text-light-100 dark:text-light-400">Uploading</h4>
 
           {files.map((file, index) => {

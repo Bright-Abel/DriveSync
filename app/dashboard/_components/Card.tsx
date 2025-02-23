@@ -1,11 +1,15 @@
+"use client";
 import Link from "next/link";
 import { Models } from "node-appwrite";
 import Thumbnail from "./Thumbnail";
 import { convertFileSize } from "@/lib/utils";
 import FormattedDateAndTime from "./FormattedDateAndTime";
-import ActionDropDown from "./ActionDropDown";
+import ActionDropDowns from "./ActionDropDowns";
 
 const Card = ({ item }: { item: Models.Document }) => {
+  // const handleDropdownClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  //   e.preventDefault();
+  // };
   return (
     <Link href={item.url} target="_blank" className="file-card">
       <div className="flex justify-between">
@@ -17,7 +21,10 @@ const Card = ({ item }: { item: Models.Document }) => {
           imageClassName="!size-11"
         />
         <div className="flex items-end flex-col justify-between">
-          <ActionDropDown item={item} />
+          <ActionDropDowns
+            item={item}
+            // handleDropdownClick={handleDropdownClick}
+          />
           <p className="dark:text-light-500">{convertFileSize(item.size)}</p>
         </div>
       </div>

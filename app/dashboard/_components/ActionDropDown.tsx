@@ -12,6 +12,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -141,7 +142,7 @@ const ActionDropDown = ({ item }: { item: Models.Document }) => {
   };
 
   return (
-    <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+    <>
       <DropdownMenu open={isDropDownOpen} onOpenChange={setIsDropDownOpen}>
         <DropdownMenuTrigger className="shad-no-focus">
           <Image
@@ -152,57 +153,61 @@ const ActionDropDown = ({ item }: { item: Models.Document }) => {
             className="object-contain"
           />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-white dark:bg-dark_1-200 border-0">
-          <DropdownMenuLabel className="max-w-[200px] truncate">
-            {item.name}
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          {actionsDropdownItems.map((actiontem) => (
-            <DropdownMenuItem
-              key={actiontem.value}
-              className="shad-dropdown-item dark:hover:!bg-dark_1-300"
-              onClick={() => {
-                setAction(actiontem);
-                if (
-                  ["rename", "share", "delete", "details"].includes(
-                    actiontem.value
-                  )
-                ) {
-                  setIsModalOpen(true);
-                }
-              }}
-            >
-              {actiontem.value === "download" ? (
-                <Link
-                  href={constructDownloadUrl(item.bucketFileId)}
-                  download={item.name}
-                  className="flex items-center gap-2"
-                >
-                  <Image
-                    src={actiontem.icon}
-                    alt={actiontem.value}
-                    width={30}
-                    height={30}
-                  />
-                  <p className="capitalize">{actiontem.value}</p>
-                </Link>
-              ) : (
-                <div className="flex items-center gap-2">
-                  <Image
-                    src={actiontem.icon}
-                    alt={actiontem.value}
-                    width={30}
-                    height={30}
-                  />
-                  <p className="capitalize">{actiontem.value}</p>
-                </div>
-              )}
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuContent>
+        <DropdownMenuPortal>
+          <DropdownMenuContent className="bg-white dark:bg-dark_1-200 ">
+            <DropdownMenuLabel className="max-w-[200px] truncate">
+              {item.name}
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            {actionsDropdownItems.map((actiontem) => (
+              <DropdownMenuItem
+                key={actiontem.value}
+                className="shad-dropdown-item dark:hover:!bg-dark_1-300"
+                onClick={() => {
+                  setAction(actiontem);
+                  if (
+                    ["rename", "share", "delete", "details"].includes(
+                      actiontem.value
+                    )
+                  ) {
+                    setIsModalOpen(true);
+                  }
+                }}
+              >
+                {actiontem.value === "download" ? (
+                  <Link
+                    href={constructDownloadUrl(item.bucketFileId)}
+                    download={item.name}
+                    className="flex items-center gap-2"
+                  >
+                    <Image
+                      src={actiontem.icon}
+                      alt={actiontem.value}
+                      width={30}
+                      height={30}
+                    />
+                    <p className="capitalize">{actiontem.value}</p>
+                  </Link>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src={actiontem.icon}
+                      alt={actiontem.value}
+                      width={30}
+                      height={30}
+                    />
+                    <p className="capitalize">{actiontem.value}</p>
+                  </div>
+                )}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenuPortal>
       </DropdownMenu>
-      {renderDialogContent()}
-    </Dialog>
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        {renderDialogContent()}
+      </Dialog>
+    </>
   );
 };
 

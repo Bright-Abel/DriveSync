@@ -4,6 +4,7 @@ import "./globals.css";
 import ToastProvider from "@/components/ReactToast";
 import { Providers } from "@/providers/ThemeProvider";
 import ReduxProvider from "@/providers/redux-provider";
+import NProgressProvider from "@/providers/NProgress";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -32,11 +33,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} font-poppins antialiased container h-full bg-white dark:bg-dark_1-200`}
+        className={`${poppins.variable} relative font-poppins antialiased container h-full bg-white dark:bg-dark_1-200`}
       >
         <Providers>
           <ReduxProvider>
-            <ToastProvider>{children}</ToastProvider>
+            <NProgressProvider>
+              <ToastProvider>{children}</ToastProvider>
+            </NProgressProvider>
           </ReduxProvider>
         </Providers>
       </body>

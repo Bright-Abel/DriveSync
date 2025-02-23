@@ -10,12 +10,12 @@ const layout = async ({ children }: { children: React.ReactNode }) => {
   const currentUser = await getCurrentUser();
 
   return (
-    <main className="flex h-screen">
+    <main className="flex h-screen w-full">
       <Sidebar {...currentUser} />
-      <section className="h-full flex-1 flex flex-col">
+      <section className="h-full flex-1 flex flex-col flex-shrink-0 w-full">
         <MobileNavigation {...currentUser} />
         <Header ownerId={currentUser.$id} accountId={currentUser.accountId} />
-        <div className="main-content bg-light-400 dark:bg-dark_1-300">
+        <div className="main-content flex-shrink-0 bg-light-400 w-full dark:bg-dark_1-300">
           {children}
         </div>
       </section>

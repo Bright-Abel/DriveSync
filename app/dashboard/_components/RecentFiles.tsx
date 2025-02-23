@@ -1,14 +1,14 @@
 import { Models } from "node-appwrite";
 import Thumbnail from "./Thumbnail";
-import ActionDropDown from "./ActionDropDown";
+import ActionDropDowns from "./ActionDropDowns";
 
 import FormattedDateAndTime from "./FormattedDateAndTime";
+// import DropdownExample from "./Menu";
 
 const RecentFiles = ({ file: item }: { file: Models.Document }) => {
-  // console.log(item);
   return (
-    <div className="flex items-center justify-between gap-4 ">
-      <div className="flex-1 flex items-center gap-4">
+    <div className="flex w-full items-center justify-between gap-4 ">
+      <div className="flex-1 flex items-center gap-4 flex-shrink-0">
         <Thumbnail
           url={item.url}
           type={item.fileType}
@@ -26,7 +26,8 @@ const RecentFiles = ({ file: item }: { file: Models.Document }) => {
           />
         </div>
       </div>
-      <ActionDropDown item={item} />
+      {/* <DropdownExample /> */}
+      <ActionDropDowns item={item} />
     </div>
   );
 };

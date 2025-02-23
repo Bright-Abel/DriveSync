@@ -161,7 +161,7 @@ const AuthForm = ({ type }: { type: FormTypes }) => {
                           {prop.type === "password" && (
                             <button
                               type="button"
-                              className="text-brand outline-none focus:outline-none"
+                              className="text-brand dark:text-brand-200 outline-none focus:outline-none"
                               onClick={togglePasswordVisibility}
                             >
                               {passwordVisible ? <HiEyeOff /> : <HiEye />}
@@ -204,7 +204,7 @@ const AuthForm = ({ type }: { type: FormTypes }) => {
                             {prop.type === "password" && (
                               <button
                                 type="button"
-                                className="text-brand outline-none focus:outline-none"
+                                className="text-brand dark:text-brand-200 outline-none focus:outline-none"
                                 onClick={togglePasswordVisibility}
                               >
                                 {passwordVisible ? <HiEyeOff /> : <HiEye />}
@@ -242,14 +242,14 @@ const AuthForm = ({ type }: { type: FormTypes }) => {
           </Button>
 
           <div className="body-2 flex justify-center">
-            <p className="text-light-100">
+            <p className="text-light-100 dark:text-light-400">
               {type === "sign-in"
                 ? "Don't have an account?"
                 : "Already have an account?"}
             </p>
             <Link
               href={type === "sign-in" ? "/auth/sign-up" : "/auth/sign-in"}
-              className="ml-1 font-medium text-brand hover:underline hover:text-opacity-85 duration-300"
+              className="ml-1 font-medium text-brand dark:text-brand-200  hover:underline hover:text-opacity-85 duration-300"
             >
               {type === "sign-in" ? "Sign Up" : "Sign In"}
             </Link>

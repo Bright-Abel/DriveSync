@@ -19,6 +19,7 @@ const config: Config = {
         // #D3B69C
         brand: {
           "100": "#EA6365",
+          "200": "#D3B69C",
           DEFAULT: "#FA7275",
         },
         red: "#FF7474",

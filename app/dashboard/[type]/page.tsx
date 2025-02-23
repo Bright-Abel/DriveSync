@@ -1,5 +1,5 @@
 import { getFiles, getUserTotalSpace } from "@/lib/actions/file.action";
-import Sort from "../_components/Sort";
+import Sorts from "../_components/Sorts";
 import { Models } from "node-appwrite";
 import Card from "../_components/Card";
 import {
@@ -43,7 +43,7 @@ const Page = async ({ searchParams, params }: SearchParamProps) => {
             <p className="body-1 hidden text-light-200 dark:text-light-300 sm:block">
               Sort by:
             </p>
-            <Sort />
+            <Sorts />
           </div>
         </div>
       </section>

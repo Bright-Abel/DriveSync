@@ -1,11 +1,12 @@
 import Image from "next/image";
 
-import ImageDialog from "./ImageDialog";
+// import ImageDialog from "./ImageDialog";
 import LogoWhite from "@/components/LogoWhite";
+import AvatarDialog from "./AvatarDialog";
 
 const SideContent = ({ type }: { type: "sign-in" | "sign-up" }) => {
   return (
-    <section className="h-full hidden w-1/2 items-center justify-center lg:flex xl:w-2/5 p-10 bg-brand">
+    <section className="h-full hidden w-1/2 items-center justify-center lg:flex xl:w-2/5 p-10 bg-brand dark:bg-brand-200">
       <div className="flex max-h-[800px] max-w-[430px] flex-col space-y-8 justify-center items-center ">
         <LogoWhite />
         {/* <Image
@@ -35,7 +36,14 @@ const SideContent = ({ type }: { type: "sign-in" | "sign-up" }) => {
             className="transition-all hover:scale-105 hover:rotate-2 duration-500 object-contain"
           />
         )}
-        {type === "sign-up" && <ImageDialog />}
+        {type === "sign-up" && (
+          <div className="w-full space-y-4">
+            <h2 className="h2 text-center text-light-400">
+              Please Select an Avatar for your Profile
+            </h2>
+            <AvatarDialog />
+          </div>
+        )}
       </div>
     </section>
   );
