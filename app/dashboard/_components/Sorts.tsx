@@ -20,11 +20,15 @@ const Sorts = () => {
   return (
     <Select
       className="max-w-xs sort-select"
-      defaultSelectedKeys={sortTypes[0].value}
+      // defaultSelectedKeys={values || sortTypes[0].value}
       selectedKeys={values}
       selectionMode="single"
       onChange={handleSelectionChange}
-      placeholder={sortTypes[0].label}
+      placeholder={
+        values
+          ? sortTypes.find((item) => item.value === values)?.label
+          : sortTypes[0].label
+      }
       aria-label="Sort by"
     >
       {sortTypes.map((items) => (

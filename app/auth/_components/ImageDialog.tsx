@@ -7,9 +7,11 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
+  DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { myAvatar } from "@/lib/constant";
-import { DialogTitle, DialogTrigger } from "@radix-ui/react-dialog";
+// import { DialogTitle, DialogTrigger } from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
 

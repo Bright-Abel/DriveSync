@@ -1,10 +1,5 @@
 "use client";
-import {
-  Sheet,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -17,6 +12,14 @@ import FileUploader from "./FileUploader";
 import { Button } from "@/components/ui/button";
 import { signOutUser } from "@/lib/actions/user.actions";
 import { IoMenu } from "react-icons/io5";
+
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import MobileSidebar from "./MobileSidebar";
 
 interface Props {
   $id: string;
@@ -35,20 +38,43 @@ const MobileNavigation = ({
 }: Props) => {
   const [open, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
 
   return (
-    <header className="mobile-header">
-      <div className="flex items-center gap-3">
-        <Image
-          src="/assets/images/primary.svg"
-          alt="logo"
-          width={52}
-          height={52}
-          className="h-auto"
-        />
-        <p className="text-xl font-semibold text-brand">DriveSync</p>
-      </div>
-      <Sheet open={open} onOpenChange={setIsOpen}>
+    <>
+      <MobileSidebar
+        toggleSidebar={toggleSidebar}
+        isSidebarOpen={isSidebarOpen}
+        ownerId={ownerId}
+        accountId={accountId}
+        fullname={fullname}
+        email={email}
+        avatar_url={avatar_url}
+      />
+      <header className="mobile-header">
+        <div className="flex items-center gap-3">
+          <Image
+            src="/assets/images/primary.svg"
+            alt="logo"
+            width={52}
+            height={52}
+            className="h-auto"
+          />
+          <p className="text-xl font-semibold text-brand">DriveSync</p>
+        </div>
+        <div
+          // type="button"
+          onClick={toggleSidebar}
+          aria-label="Sidebar Control"
+          className="text-4xl  text-dark_1-200 dark:text-light-400"
+        >
+          <IoMenu />
+        </div>
+        {/* <Sheet open={open} onOpenChange={setIsOpen}>
         <SheetTrigger>
           <IoMenu className="text-4xl  text-dark_1-200 dark:text-light-400" />
         </SheetTrigger>
@@ -117,8 +143,9 @@ const MobileNavigation = ({
             </Button>
           </div>
         </SheetContent>
-      </Sheet>
-    </header>
+      </Sheet> */}
+      </header>
+    </>
   );
 };
 

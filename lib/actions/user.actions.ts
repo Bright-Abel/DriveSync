@@ -88,9 +88,9 @@ export const verifySecret = async ({
       path: "/",
       secure: true,
       sameSite: "strict",
-      maxAge: 60 * 60 * 60 * 24,
+      maxAge: 24 * 60 * 60,
     });
-    console.log(session);
+
     return parseStrignify({ sessionId: session.$id });
   } catch (error) {
     handleError(error, "Failed to verify OTP");

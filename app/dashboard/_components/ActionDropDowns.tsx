@@ -14,7 +14,6 @@ import {
   DropdownSection,
   DropdownItem,
 } from "@heroui/dropdown";
-import { Divider } from "@heroui/divider";
 import { Input } from "@/components/ui/input";
 import { deleteFile, renameFile, shareFile } from "@/lib/actions/file.action";
 import { actionsDropdownItems } from "@/lib/constant";

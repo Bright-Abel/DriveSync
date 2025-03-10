@@ -72,7 +72,7 @@ const Dashboard = async () => {
         </div>
       </section>
 
-      <section className="dashboard-recent-files !pb-10 w-full relative">
+      <section className="dashboard-recent-files hidden md:block  !pb-10 w-full relative">
         <div className="w-full px-5 xl:px-7 pt-6 bg-white dark:bg-dark_1-400 sticky top-0 z-10">
           <h2 className="h2 text-light-100 dark:text-light-400 ">
             Recent files uploaded

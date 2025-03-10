@@ -9,13 +9,22 @@ import { MAX_FILE_SIZE } from "@/lib/constant";
 import { useToast } from "@/hooks/use-toast";
 import { fileUpload } from "@/lib/actions/file.action";
 import { usePathname } from "next/navigation";
+import clsx from "clsx";
 interface Props {
   ownerId: string;
   accountId: string;
   className?: string;
+  showUplaodButton?: boolean;
+  uploaderClassName?: string;
 }
 
-const FileUploader = ({ ownerId, accountId, className }: Props) => {
+const FileUploader = ({
+  ownerId,
+  accountId,
+  className,
+  showUplaodButton = true,
+  uploaderClassName,
+}: Props) => {
   const [files, setFiles] = useState<File[]>([]);
   const { toast } = useToast();
   const path = usePathname();
@@ -67,7 +76,10 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
   };
   return (
     <>
-      <div {...getRootProps()} className="cursor-pointer ">
+      <div
+        {...getRootProps()}
+        className={clsx("cursor-pointer", uploaderClassName)}
+      >
         <input {...getInputProps()} />
         <Button type="button" className={cn("uploader-button", className)}>
           <Image
@@ -76,11 +88,12 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
             width={24}
             height={24}
           />
-          <p>Upload</p>
+          {showUplaodButton && <p>Upload</p>}
         </Button>
       </div>
+
       {files.length > 0 && (
-        <ul className="uploader-preview-list relative z-50">
+        <ul className="uploader-preview-list ">
           <h4 className="h4 text-light-100 dark:text-light-400">Uploading</h4>
 
           {files.map((file, index) => {

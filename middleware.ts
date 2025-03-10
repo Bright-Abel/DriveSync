@@ -43,8 +43,9 @@ export async function middleware(req: NextRequest) {
       } else {
         // Redirect unverified users to email verification page, but allow them to access it
         if (
-          (path.startsWith("/dashboard") || path.startsWith("/auth")) &&
-          !path.startsWith("/verify/email-verification")
+          path.startsWith("/dashboard") ||
+          path.startsWith("/auth")
+          // !path.includes("/email-verification")
         ) {
           return NextResponse.redirect(
             new URL("/verify/email-verification", req.url)
