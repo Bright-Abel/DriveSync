@@ -55,6 +55,7 @@ export const fileUpload = async ({
     revalidatePath(path);
     return parseStrignify(newFile);
   } catch (error) {
+    console.error("Detailed Error:", error);
     handleError(error, "Failed to upload file");
   }
 };
